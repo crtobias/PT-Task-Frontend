@@ -13,7 +13,7 @@ export const TasksProvider = ({ children }) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch('URL');  //==>> URL
+        const response = await fetch('https://pt-task-backend.onrender.com/task ');  //==>> URL
         const data = await response.json();
         setTasks(data);
       } catch (error) {

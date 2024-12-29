@@ -116,17 +116,6 @@ function TaskDetails() {
                 className="mt-1 p-2 w-full border rounded-md text-black"
               />
             </div>
-            <div className="mb-4">
-              <label htmlFor="completed" className="block text-sm font-medium">Completada</label>
-              <input
-                type="checkbox"
-                id="completed"
-                name="completed"
-                checked={formData.completed}
-                onChange={handleChange}
-                className="mt-1"
-              />
-            </div>
               <button
                 type="submit"
                 className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"

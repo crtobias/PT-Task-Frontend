@@ -7,26 +7,31 @@ import TaskCreate from "./screens/TaskCreate";
 import CompleteTask from "./screens/CompleteTask";
 import IncompleteTask from "./screens/IncompleteTask";
 import About from "./screens/About";
+import NotFound from "./screens/NotFound";
+import './/index.css'; 
+
+
 
 function App() {
   return (
-    <div className="bg-principal font-poppins text-fuentes min-h-screen transition-all duration-300">
-      <TasksProvider>
-        <Router>
-            <Navbar></Navbar>
-            <Routes>
-           
-              <Route path="/" element={<Home />} />
-              <Route path="/complete" element={ <CompleteTask /> } />
-              <Route path="/incomplete" element={ <IncompleteTask/> } />
-              <Route path="/task/:id" element={<TaskDetails />} />
-              <Route path="/create" element={<TaskCreate/>} />
-              <Route path="/about" element={<About/>} />
-              
-            </Routes>
-        </Router>
-      </TasksProvider>
-    </div>
+    <div className="bg-principal font-poppins text-fuentes min-h-screen transition-all duration-300 bg-gradient-anim">
+  <TasksProvider>
+    <Router>
+      <Navbar />
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/complete" element={<CompleteTask />} />
+          <Route path="/incomplete" element={<IncompleteTask />} />
+          <Route path="/task/:id" element={<TaskDetails />} />
+          <Route path="/create" element={<TaskCreate />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
+  </TasksProvider>
+</div>
   )
 }
 

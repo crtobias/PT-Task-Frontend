@@ -5,6 +5,7 @@ import Off from "../assets/Off.svg";
 import Edit from "../assets/Edit.svg";
 import { useState } from 'react';
 
+
 function Card({ datos }) {
   const [completed, setCompleted] = useState(datos.completed);
 
@@ -35,13 +36,14 @@ function Card({ datos }) {
   };
 
   return (
-    <div className="bg-secundario flex p-4 rounded-xl h-40 w-72 justify-between shadow-xl">
-      <div>
-        <h3 className="text-xl font-semibold">{datos.title}</h3>
-        <p className="text-sm text-gray-700">{datos.description}</p>
+    <div className="bg-secundario flex-col p-4 rounded-xl h-52 max-h-52 w-72 max-w-72 justify-between shadow-xl overflow-hidden">
+      <div className="flex-1">
+        <h3 className="text-xl font-semibold truncate">{datos.title}</h3>
+        <p className="text-sm text-gray-300 line-clamp-1">{datos.description}</p>
         <p className={completed ? "text-green-500" : "text-orange-500"}>
           {completed ? "Hecha" : "Sin hacer"}
         </p>
+        <p className="text-sm text-gray-500">{datos.createdAt}</p>
       </div>
 
       <div className="flex-col">
@@ -57,6 +59,7 @@ function Card({ datos }) {
         </Link>
       </div>
     </div>
+
   );
 }
 
@@ -66,6 +69,7 @@ Card.propTypes = {
     _id: PropTypes.string.isRequired,
     description: PropTypes.string,
     completed: PropTypes.bool,
+    createdAt: PropTypes.string,
   }).isRequired,
 };
 

@@ -47,9 +47,10 @@ function TaskCreate() {
   };
 
   return (
-    <form
+    <div className="pt-24">
+      <form
       onSubmit={handleSubmit}
-      className="bg-secundario p-4 rounded-md max-w-md mx-auto mt-10 m-2"
+      className="bg-secundario p-4 rounded-md max-w-md mx-auto"
     >
       <h2 className="text-lg font-bold mb-4">Crear Nueva Tarea</h2>
 
@@ -63,6 +64,7 @@ function TaskCreate() {
           placeholder="Escribe un título"
           className="w-full p-2 rounded-md text-black"
           required
+          maxLength={"15"}
         />
       </div>
 
@@ -75,6 +77,7 @@ function TaskCreate() {
           placeholder="Escribe una descripción"
           className="w-full p-2 rounded-md text-black"
           rows="4"
+          maxLength={"100"}
         ></textarea>
       </div>
 
@@ -85,6 +88,7 @@ function TaskCreate() {
         Crear Tarea
       </button>
     </form>
+    </div>
   );
 }
 

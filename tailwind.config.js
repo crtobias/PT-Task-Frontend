@@ -11,6 +11,9 @@ export default {
         secundario: '#413a65',
         fuentes: '#dbdce3',
       },
+      maxWidth: {
+        '1024': '1024px',
+      },
     },
   },
   plugins: [],

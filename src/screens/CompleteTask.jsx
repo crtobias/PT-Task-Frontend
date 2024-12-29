@@ -16,7 +16,7 @@ function CompleteTask() {
     }
   
     return (
-      <div className="flex flex-col min-h-screen ">
+      <div className="flex flex-col min-h-screen max-w-1024  ">
         <h1 className="text-4xl text-center m-5 mt-14">Tasks</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">

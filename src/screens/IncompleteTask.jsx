@@ -3,13 +3,13 @@ import { useContext, useEffect } from 'react';
 import { TasksContext } from '../context/tasksContext.jsx'; 
 import CreateButton from "../components/CreateButton.jsx";
 
-function Home() {
+function IncompleteTask() {
 
-    const { tasks, loading } = useContext(TasksContext);
+    const { incompleteTasks, loading } = useContext(TasksContext);
   
     useEffect(() => {
-      console.log('Página cargada, tareas:', tasks);
-    }, [tasks]); 
+      console.log('Página cargada, tareas:', incompleteTasks);
+    }, [incompleteTasks]); 
   
     if (loading) {
       return <div>Cargando tareas...</div>;
@@ -20,7 +20,7 @@ function Home() {
         <h1 className="text-4xl text-center m-5 mt-12">Tareas</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
-          {tasks.map((task) => (
+          {incompleteTasks.map((task) => (
             <Card key={task._id} datos={task} />
           ))}
         </div>
@@ -30,5 +30,5 @@ function Home() {
     );
   }
   
-  export default Home
+  export default IncompleteTask
   

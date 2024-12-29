@@ -49,7 +49,7 @@ function TaskCreate() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-violet-600 p-4 rounded-md max-w-md mx-auto mt-10"
+      className="bg-secundario p-4 rounded-md max-w-md mx-auto mt-10 m-2"
     >
       <h2 className="text-lg font-bold mb-4">Crear Nueva Tarea</h2>
 
@@ -80,7 +80,7 @@ function TaskCreate() {
 
       <button
         type="submit"
-        className="bg-violet-800 text-gray-100 px-4 py-2 rounded-md hover:bg-violet-700"
+        className=" text-gray-100 px-4 py-2 rounded-md hover:bg-violet-700"
       >
         Crear Tarea
       </button>

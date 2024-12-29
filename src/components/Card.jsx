@@ -10,10 +10,10 @@ function Card({ datos }) {
 
   const handleToggleCompleted = async () => {
     try {
-      
+
       setCompleted(!completed);
 
-      
+
       const response = await fetch(`https://pt-task-backend.onrender.com/task/${datos._id}`, {
         method: "PUT",
         headers: {
@@ -35,19 +35,21 @@ function Card({ datos }) {
   };
 
   return (
-    <div className="flex">
+    <div className="bg-secundario flex p-4 rounded-xl h-40 w-72 justify-between shadow-xl">
       <div>
         <h3 className="text-xl font-semibold">{datos.title}</h3>
         <p className="text-sm text-gray-700">{datos.description}</p>
-        <p>{completed ? "Hecha" : "Sin hacer"}</p>
+        <p className={completed ? "text-green-500" : "text-orange-500"}>
+          {completed ? "Hecha" : "Sin hacer"}
+        </p>
       </div>
-      
+
       <div className="flex-col">
         <img
           src={completed ? On : Off}
           alt="Estado de la tarea"
           className="h-8 cursor-pointer"
-          onClick={handleToggleCompleted} 
+          onClick={handleToggleCompleted}
         />
 
         <Link to={`/task/${datos._id}`} className="">

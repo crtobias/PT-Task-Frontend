@@ -68,63 +68,75 @@ function TaskDetails() {
   };
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
 
   if (!task) {
-    return <div>No se encontraron detalles para esta tarea.</div>;
+    return <div>No details found for this task.</div>;
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="p-4 max-w-xs bg-secundario rounded-lg shadow-lg ">
-        <h3 className="text-xl font-semibold truncate">{task.title}</h3>
-        <p className="text-lg  truncate">Description <br /> {task.description}</p>
-        <p className="text-sm text-gray-500">Status: {task.completed ? "Completed" : "Pending"}</p>
-        <p className="text-sm text-gray-500">id: {task._id}</p>
-        <p className="text-sm text-gray-500">Date: {task.createdAt}</p>
+    <div className="flex items-center justify-center min-h-screen">
+  <div className="p-4 w-full max-w-xs bg-secundario rounded-lg shadow-lg">
+    <h3 className="text-xl font-semibold">{task.title}</h3>
+    
+    <p className="text-lg max-h-44 overflow-auto break-words">
+      Description: <br /> {task.description}
+    </p>
+    
+    <p className="text-sm text-gray-500">Status: {task.completed ? "Completed" : "Pending"}</p>
+    <p className="text-sm text-gray-500">ID: {task._id}</p>
+    <p className="text-sm text-gray-500">Date: {task.createdAt}</p>
 
-        <button onClick={() => setIsEditing(true)} className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md">
-          Edit
+    <button
+      onClick={() => setIsEditing(true)}
+      className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md"
+    >
+      Edit
+    </button>
+
+    <button
+      onClick={handleDelete}
+      className="mt-4 ml-2 px-4 py-2 bg-red-500 text-white rounded-md"
+    >
+      Delete
+    </button>
+
+    {isEditing && (
+      <form onSubmit={handleUpdate} className="mt-4">
+        <div className="mb-4">
+          <label htmlFor="title" className="block text-sm font-medium">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded-md text-black"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="description" className="block text-sm font-medium">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded-md text-black"
+          />
+        </div>
+        <button
+          type="submit"
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Save Changes
         </button>
+      </form>
+    )}
+  </div>
+</div>
 
-        <button onClick={handleDelete} className="mt-4 ml-2 px-4 py-2 bg-red-500 text-white rounded-md">
-          Delete
-        </button>
 
-        {isEditing && (
-          <form onSubmit={handleUpdate} className="mt-4">
-            <div className="mb-4">
-              <label htmlFor="title" className="block text-sm font-medium">Títle</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                className="mt-1 p-2 w-full border rounded-md text-black"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="description" className="block text-sm font-medium">Description</label>
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                className="mt-1 p-2 w-full border rounded-md text-black"
-              />
-            </div>
-              <button
-                type="submit"
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
-              >
-                Save Changes
-              </button>
-          </form>
-        )}
-      </div>
-    </div>
   );
 }
 

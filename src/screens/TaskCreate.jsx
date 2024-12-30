@@ -32,7 +32,7 @@ function TaskCreate() {
 
 
   return (
-    <div className="pt-24">
+    <div className="pt-16">
       <form
       onSubmit={handleSubmit}
       className="bg-secundario p-4 rounded-md max-w-md mx-auto"

@@ -36,7 +36,7 @@ function Card({ datos }) {
   };
 
   return (
-    <div className="bg-secundario flex-col p-4 rounded-xl h-52 max-h-52 w-72 max-w-72 justify-between shadow-xl overflow-hidden">
+    <div className="bg-secundario flex-col p-4 rounded-xl h-52 max-h-52 w-72 max-w-72 justify-between shadow-xl overflow-hidden hover:border hover:border-pink-200">
       <div className="flex-1">
         <h3 className="text-xl font-semibold truncate">{datos.title}</h3>
         <p className="text-sm text-gray-300 line-clamp-1">{datos.description}</p>

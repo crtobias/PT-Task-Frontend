@@ -47,10 +47,10 @@ function TaskDetails() {
 
       await updateTask(id, formData);
 
-      alert('Tarea actualizada correctamente');
+      alert('Task updated successfully');
       setIsEditing(false);
     } catch (error) {
-      alert('Error al actualizar la tarea');
+      alert('Error updating task');
       console.log(error);
     }
   };
@@ -59,10 +59,10 @@ function TaskDetails() {
     try {
 
       await deleteTask(id);
-      alert('Tarea eliminada correctamente');
+      alert('Task deleted successfully');
       history('/');
     } catch (error) {
-      alert('Error al eliminar la tarea');
+      alert('Error deleting task');
       console.log(error);
     }
   };
@@ -76,27 +76,26 @@ function TaskDetails() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="p-4 max-w-xs bg-secundario rounded-lg shadow-lg">
-        <h3 className="text-xl font-semibold">{task.title}</h3>
-        <p className="text-lg">description <br />
-          {task.description}</p>
-        <p className="text-sm text-gray-500">Estado: {task.completed ? "Hecha" : "Sin hacer"}</p>
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="p-4 max-w-xs bg-secundario rounded-lg shadow-lg ">
+        <h3 className="text-xl font-semibold truncate">{task.title}</h3>
+        <p className="text-lg  truncate">Description <br /> {task.description}</p>
+        <p className="text-sm text-gray-500">Status: {task.completed ? "Completed" : "Pending"}</p>
         <p className="text-sm text-gray-500">id: {task._id}</p>
-        <p className="text-sm text-gray-500">Fecha de creación: {task.createdAt}</p>
+        <p className="text-sm text-gray-500">Date: {task.createdAt}</p>
 
         <button onClick={() => setIsEditing(true)} className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md">
-          Editar
+          Edit
         </button>
 
         <button onClick={handleDelete} className="mt-4 ml-2 px-4 py-2 bg-red-500 text-white rounded-md">
-          Eliminar
+          Delete
         </button>
 
         {isEditing && (
           <form onSubmit={handleUpdate} className="mt-4">
             <div className="mb-4">
-              <label htmlFor="title" className="block text-sm font-medium">Título</label>
+              <label htmlFor="title" className="block text-sm font-medium">Títle</label>
               <input
                 type="text"
                 id="title"
@@ -107,7 +106,7 @@ function TaskDetails() {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="description" className="block text-sm font-medium">Descripción</label>
+              <label htmlFor="description" className="block text-sm font-medium">Description</label>
               <textarea
                 id="description"
                 name="description"
@@ -120,7 +119,7 @@ function TaskDetails() {
                 type="submit"
                 className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
               >
-                Guardar cambios
+                Save Changes
               </button>
           </form>
         )}

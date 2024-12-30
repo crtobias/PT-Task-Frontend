@@ -24,12 +24,12 @@ function Card({ datos }) {
       });
 
       if (!response.ok) {
-        throw new Error("Error al actualizar la tarea");
+        throw new Error("Error updating task");
       }
 
-      console.log("Tarea actualizada con éxito");
+      console.log("Task updated successfully");
     } catch (error) {
-      console.error("Error al actualizar:", error.message);
+      console.error("Error updating:", error.message);
 
       setCompleted(completed);
     }
@@ -41,7 +41,7 @@ function Card({ datos }) {
         <h3 className="text-xl font-semibold truncate">{datos.title}</h3>
         <p className="text-sm text-gray-300 line-clamp-1">{datos.description}</p>
         <p className={completed ? "text-green-500" : "text-orange-500"}>
-          {completed ? "Hecha" : "Sin hacer"}
+          {completed ? "Completed" : "Pending"}
         </p>
         <p className="text-sm text-gray-500">{datos.createdAt}</p>
       </div>
@@ -55,7 +55,7 @@ function Card({ datos }) {
         />
 
         <Link to={`/task/${datos._id}`} className="">
-          <img src={Edit} alt="Editar tarea" className="h-8 w-8" />
+          <img src={Edit} alt="Edit Task" className="h-8 w-8" />
         </Link>
       </div>
     </div>

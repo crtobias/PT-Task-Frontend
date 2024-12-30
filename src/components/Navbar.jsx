@@ -5,7 +5,7 @@ function Navbar() {
     <div className="fixed w-full flex flex-row justify-center p-2 gap-6 text-lg text-gray-300 backdrop-blur-lg bg-secundario/45 shadow-md">
       <div className="left-1 hover:text-gray-100 hover:scale-110 hover:border-b hover:border-white transition-all">
         <Link to={'/about'}>
-          ...
+          🙂
         </Link>
       </div>
       <Link to={`/`}>

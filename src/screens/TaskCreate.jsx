@@ -6,45 +6,30 @@ function TaskCreate() {
   const [description, setDescription] = useState("");
   const { createTask } = useContext(TasksContext);
 
+
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (!title) {
-      alert("El título es obligatorio");
+      alert("The title is mandatory");
       return;
     }
 
     const task = {
       title,
-      description: description || undefined, 
+      description: description || undefined,
     };
 
     try {
-      const response = await fetch("https://pt-task-backend.onrender.com/task/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(task),
-      });
-
-      if (!response.ok) {
-        throw new Error("Error al enviar la tarea");
-      }
-
-      const newTask = await response.json();  // Obtener la tarea creada desde la respuesta
-
-      // Llama a addTask para agregar la tarea al estado global
-      createTask(newTask);  
-      alert("Tarea creada con éxito");
-      
+      await createTask(task); 
+      alert("Task created successfully");
       setTitle("");
       setDescription("");
     } catch (error) {
-    //  alert(error.message);
-        console.log(error);
+      console.log(error);
     }
   };
+
 
   return (
     <div className="pt-24">
@@ -52,29 +37,29 @@ function TaskCreate() {
       onSubmit={handleSubmit}
       className="bg-secundario p-4 rounded-md max-w-md mx-auto"
     >
-      <h2 className="text-lg font-bold mb-4">Crear Nueva Tarea</h2>
+      <h2 className="text-lg font-bold mb-4">Create New Tasks</h2>
 
       <div className="mb-4">
-        <label htmlFor="title" className="block mb-2">Título</label>
+        <label htmlFor="title" className="block mb-2">Títle</label>
         <input
           type="text"
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Escribe un título"
+          placeholder="title"
           className="w-full p-2 rounded-md text-black"
           required
-          maxLength={"15"}
+          maxLength={"25"}
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="description" className="block mb-2">Descripción (Opcional)</label>
+        <label htmlFor="description" className="block mb-2">Description</label>
         <textarea
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Escribe una descripción"
+          placeholder="description"
           className="w-full p-2 rounded-md text-black"
           rows="4"
           maxLength={"100"}
@@ -85,7 +70,7 @@ function TaskCreate() {
         type="submit"
         className=" text-gray-100 px-4 py-2 rounded-md hover:bg-violet-700"
       >
-        Crear Tarea
+        Create Task
       </button>
     </form>
     </div>

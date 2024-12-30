@@ -2,6 +2,9 @@
 
 Este es el frontend de una aplicación CRUD de tareas desarrollada como parte de una prueba técnica. Permite crear, leer, actualizar y eliminar tareas, ofreciendo una interfaz sencilla y funcional.
 
+⚠ **Nota importante:**  
+Como es un despliegue gratuito en Render, la primera vez que accedas o después de un período de inactividad, el servidor puede tardar algunos segundos en arrancar. Esto es completamente normal debido a las políticas de servicios gratuitos.
+
 ## Tecnologías utilizadas:
 
 - React
